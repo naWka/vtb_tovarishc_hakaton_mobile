@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, Image, View } from 'react-native';
-import Navigation from './src/navigation';
-import CardContiner from './src/components/CardContiner.js';
+import MainNew from './src/screens/main/MainNew';
 
 export default function App() {
   return (
-    <CardContiner />
+    <MainNew />
   );
 }
 

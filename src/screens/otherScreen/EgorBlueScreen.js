@@ -4,7 +4,7 @@ import {
     StyleSheet, View 
 } from "react-native";
 
-import { Colors } from '../styles';
+import { Colors } from '../../styles';
 
 const styles = StyleSheet.create({
     container: {
@@ -18,16 +18,16 @@ const styles = StyleSheet.create({
     }
   });
 
-const CardContiner = () => {
+const EgorScreen = () => {
     const image = { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' }
     return (
-      <View style={styles.container}>
-        <ImageBackground
-            source ={image}
-            style={styles.backgroungImage}
-        />
-      </View>
+        <View style={styles.container}>
+            <ImageBackground
+                source ={image}
+                style={styles.backgroungImage}
+            />
+        </View>
     );
 };
 
-export default CardContiner; 
+export default EgorScreen; 

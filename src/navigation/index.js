@@ -4,7 +4,6 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Swipe from '../screens/swipe/Swipe';
-import OtherScreen from '../screens/otherScreen/OtherScreen';
 import EntryScreen from '../screens/entryScreen/EntryScreen';
 
 const Stack = createNativeStackNavigator();
@@ -21,7 +20,6 @@ export default function Navigation() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="OtherScreen" component={OtherScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -7,8 +7,7 @@ import Swiper from 'react-native-swiper';
 import { Colors } from '../../styles';
 import SwipeCard from '../../components/SwipeCard';
 import VideoCard from '../../components/VideoCard';
-import ButtonMenu from '../../components/ButtonMenu';
-import monophy from '../../assets/images/monophy.gif';
+import WelcomeSwipeCard from '../../components/WelcomeSwipeCard';
 import AgeCard from '../../components/AgeCard';
 import SliderCard from '../../components/SliderCard';
 import DepositOrInvestment from '../../components/DepositOrInvestment';
@@ -30,9 +29,7 @@ const StorgeUrl = 'http://video.hakaton.website.yandexcloud.net/';
 
 const swipeData = [
   {
-    image: monophy,
-    containerStyle: { backgroundColor: Colors.blueLighter },
-    text: 'смахните экран вверх',
+    isWelcomeSwipe: true,
   },
   {
     isAgeCard: true,
@@ -42,21 +39,6 @@ const swipeData = [
   },
   {
     isSliderCard: true,
-  },
-  {
-    image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
-    containerStyle: { backgroundColor: Colors.blue },
-    text: 'Egor 1',
-  },
-  {
-    image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
-    containerStyle: { backgroundColor: Colors.red },
-    text: 'Egor 2',
-  },
-  {
-    image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
-    containerStyle: { backgroundColor: Colors.purple },
-    text: 'Egor 3',
   },
   {
     video: { url: `${StorgeUrl}v16-web.tiktok.com.mp4` },
@@ -71,6 +53,9 @@ const Swipe = () => (
   <View style={styles.container}>
     <Swiper horizontal={false} showsPagination={false}>
       {swipeData.map((item, id) => {
+        if (item.isWelcomeSwipe){
+          return <WelcomeSwipeCard key={id.toString()} />;
+        }
         if (item.isEnd) {
           return <EndCard key={id.toString()} />;
         }
@@ -89,7 +74,6 @@ const Swipe = () => (
         return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
       })}
     </Swiper>
-    {/* <ButtonMenu /> */}
   </View>
 );
 

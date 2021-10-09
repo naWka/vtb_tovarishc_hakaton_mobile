@@ -1,5 +1,5 @@
 export const purple = 'rgba(78, 66, 228, 1)';
-export const black = 'rgba(64, 64, 64, 1)';
+export const black = 'rgba(32, 32, 32, 1)';
 export const gray = 'rgba(175, 175, 175, 1)';
 export const grayMedium = 'rgba(219, 219, 219, 1)';
 export const grayLight = 'rgba(242, 242, 242, 1)';

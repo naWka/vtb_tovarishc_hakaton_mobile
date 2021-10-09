@@ -6,7 +6,7 @@ import {
 import Swiper from 'react-native-swiper';
 import { Colors } from '../../styles';
 import SwipeCard from '../../components/SwipeCard';
-import VideoScreen from '../otherScreen/VideoScreen';
+import VideoCard from '../../components/VideoCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -40,7 +40,7 @@ const swipeData = [
   },
   {
     video: { url: `${StorgeUrl}v16-web.tiktok.com.mp4` },
-    text: 'Egor 3',
+    text: 'Egor 4',
   },
 ];
 
@@ -49,7 +49,7 @@ const Swipe = () => (
     <Swiper horizontal={false} showsPagination={false}>
       {swipeData.map((item, id) => {
         if (item.video) {
-          return <VideoScreen url={item.video.url} />;
+          return <VideoCard key={id.toString()} url={item.video.url} />;
         }
         return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
       })}

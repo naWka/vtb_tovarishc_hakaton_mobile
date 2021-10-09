@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const VideoScreen = ({ url }) => {
+const VideoCard = ({ url }) => {
   const video = React.useRef(null);
   return (
     <Video
@@ -32,4 +32,4 @@ const VideoScreen = ({ url }) => {
   );
 };
 
-export default VideoScreen;
+export default VideoCard;

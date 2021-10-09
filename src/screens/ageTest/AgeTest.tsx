@@ -56,8 +56,9 @@ const AgeTest = () => {
   )
 
   const hendleDislikePress = () => {
+    setScore(score - 10);
+    next();
     if (activeCard < cards.length - 1) {
-      setScore(score - 10);
       setActiveCard(activeCard + 1)
     } else {
       handleTestEnd()
@@ -65,14 +66,17 @@ const AgeTest = () => {
   }
 
   const hendleLikePress = () => {
+    setScore(score + 10);
+    next();
+  }
+
+  const next = () => {
     if (activeCard < cards.length - 1) {
-      setScore(score + 10);
       setActiveCard(activeCard + 1)
     } else {
       handleTestEnd()
     }
   }
-
 
   const handleTestEnd = () => Alert.alert(`Спасибо. Мы думаем Ваш возравст в районе ${score}`)
   return (

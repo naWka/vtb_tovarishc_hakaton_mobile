@@ -3,8 +3,9 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Main from '../screens/main/Main';
+import Swipe from '../screens/swipe/Swipe';
 import OtherScreen from '../screens/otherScreen/OtherScreen';
+import EntryScreen from '../screens/entryScreen/EntryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,14 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="EntryScreen" component={EntryScreen} />
+        <Stack.Screen
+          name="Swipe"
+          component={Swipe}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen name="OtherScreen" component={OtherScreen} />
       </Stack.Navigator>
     </NavigationContainer>

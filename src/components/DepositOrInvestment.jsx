@@ -7,6 +7,7 @@ import finance from '../assets/images/finance.png';
 import calendar from '../assets/images/calendar.png';
 import cash from '../assets/images/cash.png';
 import stocks from '../assets/images/stocks.png';
+import coinsBig from '../assets/images/coinsBig.png';
 
 const styles = StyleSheet.create({
   container: {
@@ -39,8 +40,16 @@ const styles = StyleSheet.create({
   },
   priceText: {
     color: 'white',
-    fontSize: 17,
-    fontWeight: 'bold',
+    fontSize: 25,
+  },
+  priceTextBig: {
+    color: 'white',
+    fontSize: 40,
+  },
+  iconMedium: { 
+    width: 40, 
+    height: 40, 
+    marginRight: 8 
   },
   buttonContainer: {
     marginTop: 20,
@@ -52,48 +61,124 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
+  buttonContainerLight: {
+    marginTop: 20,
+    width: '100%',
+    height: 70,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
   buttonText: {
     color: 'white',
     fontSize: 25,
-    // fontWeight: 'bold',
   },
+  resultCard: {
+    height: '60%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  coinsBig: { 
+    width: 80, 
+    height: 80, 
+    marginTop: 15
+  }
 });
 
 const DepositOrInvestment = () => {
+  const cardBegin = 'begin';
+  const cardDeposit = 'deposit';
+  const cardInvestment = 'investment';
+
+  const [activeCard, setActiveCard] = React.useState(cardBegin);
+
+  const handleToBegin = () => {
+    setActiveCard(cardBegin);
+  }
+
+  const handleChooseDeposite = () => {
+    setActiveCard(cardDeposit);
+  };
+
+  const handleChooseInvestment = () => {
+    setActiveCard(cardInvestment);
+  };
+
+  const renderSwitch = (param) => {
+    switch(param) {
+      case cardBegin: 
+        return (
+          <View style={styles.card}>
+            <Text style={styles.cardTextTitle}>Представим,</Text>
+            <Text style={styles.cardText}>Сейчас 2018 год.</Text>
+            <Text style={styles.cardTextTitle}></Text>
+            <Text style={styles.cardText}>Нужно вложить</Text>
+            <View style={styles.priceContainer}>
+              <Image source={finance} style={styles.iconMedium} resizeMode="contain" />
+              <Text style={styles.priceText}>20 000 ₽</Text>
+            </View>
+            <View style={styles.priceContainer}>
+              <Image source={calendar} style={styles.iconMedium} resizeMode="contain" />
+              <Text style={styles.priceText}>Срок 3 года</Text>
+            </View>
+            <Text style={styles.cardTextTitle}></Text>
+            <TouchableOpacity onPress={handleChooseDeposite}>
+              <View style={styles.buttonContainer}>
+                <Image source={cash} style={styles.iconMedium} resizeMode="contain" />
+                <Text style={styles.buttonText}>Вклад</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleChooseInvestment}>
+              <View style={styles.buttonContainer}>
+                <Image source={stocks} style={styles.iconMedium} resizeMode="contain" />
+                <Text style={styles.buttonText}>Акции</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        );
+      case cardDeposit:
+        return (
+          <View style={styles.card}>
+            <Text style={styles.cardTextTitle}>2021 год</Text>
+            <Text style={styles.cardText}>Вклад.</Text>
+            <View style={styles.resultCard}>
+              <Text style={styles.cardText}>Твой доход</Text>
+              <Image source={coinsBig} style={styles.coinsBig} resizeMode="contain" />
+              <Text style={styles.priceTextBig}>21 203 ₽</Text>
+            </View>
+            <TouchableOpacity onPress={handleToBegin}>
+              <View style={styles.buttonContainerLight}>
+                <Text style={styles.buttonText}>вернуться в начало</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        );
+      case cardInvestment:
+        return (
+          <View style={styles.card}>
+            <Text style={styles.cardTextTitle}>2021 год</Text>
+            <Text style={styles.cardText}>Акции.</Text>
+            <View style={styles.resultCard}>
+              <Text style={styles.cardText}>Твой доход</Text>
+              <Image source={coinsBig} style={styles.coinsBig} resizeMode="contain" />
+              <Text style={styles.priceTextBig}>28 000 ₽</Text>
+            </View>
+            <TouchableOpacity onPress={handleToBegin}>
+              <View style={styles.buttonContainerLight}>
+                <Text style={styles.buttonText}>вернуться назад</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        );
+    }
+  }
+
   return (
     <LinearGradient
-      colors={['rgba(166, 195, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 50, 130, 1)']}
-      style={styles.container}
-    >
-      <View style={styles.card}>
-        <Text style={styles.cardTextTitle}>Представим</Text>
-        <Text style={styles.cardText}>Сейчас 2018 год.</Text>
-        <Text style={styles.cardTextTitle}></Text>
-        <Text style={styles.cardText}>Нужно вложить</Text>
-        <View style={styles.priceContainer}>
-          <Image source={finance} style={{ width: 40, height: 40, marginRight: 8 }} resizeMode="contain" />
-          <Text style={styles.priceText}>20 000₽</Text>
-        </View>
-        <View style={styles.priceContainer}>
-          <Image source={calendar} style={{ width: 40, height: 40, marginRight: 8 }} resizeMode="contain" />
-          <Text style={styles.priceText}>Срок 3 года</Text>
-        </View>
-        <Text style={styles.cardTextTitle}></Text>
-        <Text style={styles.cardText}>Выберите</Text>
-
-        <TouchableOpacity onPress={() => console.log('pressed deposit')}>
-          <View style={styles.buttonContainer}>
-            <Image source={cash} style={{ width: 40, height: 40, marginRight: 8 }} resizeMode="contain" />
-            <Text style={styles.buttonText}>Вклад</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('pressed stocks')}>
-          <View style={styles.buttonContainer}>
-            <Image source={stocks} style={{ width: 40, height: 40, marginRight: 8 }} resizeMode="contain" />
-            <Text style={styles.buttonText}>Акции</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+      colors={['rgba(66, 164, 241, 1)', 'rgba(33, 86, 134, 1)', 'rgba(15, 35, 67, 1)']}
+      style={styles.container}>
+      { renderSwitch(activeCard) }
     </LinearGradient>
   );
 };

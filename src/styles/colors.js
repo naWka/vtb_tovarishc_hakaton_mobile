@@ -9,3 +9,4 @@ export const green = 'rgba(31, 172, 79, 1)';
 export const yellow = 'rgba(252, 189, 66, 1)';
 export const red = 'rgba(245, 71, 71, 1)';
 export const blue = 'rgba(29, 99, 203, 1)';
+export const blueLighter = 'rgba(25, 174, 222)';

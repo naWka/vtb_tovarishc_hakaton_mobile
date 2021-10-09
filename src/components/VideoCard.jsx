@@ -27,7 +27,7 @@ const VideoCard = ({ url }) => {
       }}
       resizeMode="contain"
       isLooping
-      shouldPlay
+      shouldPlay={false}
     />
   );
 };

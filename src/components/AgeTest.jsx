@@ -1,14 +1,15 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import {
+  Text, View, StyleSheet, TouchableOpacity,
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons';
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   card: {
     width: '80%',
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   cardText: {
     color: 'white',
     fontSize: 25,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   likesContainer: {
     flexDirection: 'row',
@@ -30,71 +31,71 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     marginTop: 30,
-  }
-})
-
+  },
+});
 
 const cards = [
   {
-    text: "Думаю, что на зубы нужно было начинать откладывать еще с карманных денег в школьные годы",
+    text: 'Думаю, что на зубы нужно было начинать откладывать еще с карманных денег в школьные годы',
   },
   {
-    text: "Настоящий джедай знает истинное предназначение этого меча",
+    text: 'Настоящий джедай знает истинное предназначение этого меча',
   },
   {
-    text: "Что нужно моей спине",
+    text: 'Что нужно моей спине',
   },
-]
+];
 const AgeTest = () => {
-  const [activeCard, setActiveCard] = React.useState(0)
+  const [activeCard, setActiveCard] = React.useState(0);
   const [score, setScore] = React.useState(20);
 
   const renderCard = () => (
     <View style={styles.card}>
       <Text style={styles.cardText}>{cards[activeCard].text}</Text>
     </View>
-  )
+  );
 
   const hendleDislikePress = () => {
     setScore(score - 10);
     next();
-    if (activeCard < cards.length - 1) {
-      setActiveCard(activeCard + 1)
-    } else {
-      handleTestEnd()
-    }
-  }
+  };
 
   const hendleLikePress = () => {
     setScore(score + 10);
     next();
-  }
+  };
 
   const next = () => {
-    if (activeCard < cards.length - 1) {
-      setActiveCard(activeCard + 1)
-    } else {
-      handleTestEnd()
+    if (activeCard < cards.length) {
+      setActiveCard(activeCard + 1);
     }
-  }
+  };
 
-  const handleTestEnd = () => Alert.alert(`Спасибо. Мы думаем Ваш возравст в районе ${score}`)
+  const isEnd = activeCard >= cards.length;
   return (
     <LinearGradient
-    colors={['rgba(176, 205, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 80, 148, 1)']}
-    style={styles.container}>
-      {renderCard()}
+      colors={['rgba(176, 205, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 80, 148, 1)']}
+      style={styles.container}
+    >
+      {!isEnd ? renderCard() : (
+        <View style={styles.card}>
+          <Text style={styles.cardText}>{`Спасибо. Мы думаем Ваш возраст в районе ${score}`}</Text>
+        </View>
+      )}
+      {!isEnd && (
       <View style={styles.likesContainer}>
         <TouchableOpacity onPress={hendleDislikePress}>
-        <AntDesign name="dislike2" size={32} color="white" />
+          <AntDesign name="dislike2" size={32} color="white" />
         </TouchableOpacity>
         <TouchableOpacity onPress={hendleLikePress}>
-        <AntDesign name="like2" size={32} color="white" />
+          <AntDesign name="like2" size={32} color="white" />
         </TouchableOpacity>
-        
+
       </View>
-  </LinearGradient>
-  )
+      )}
+
+    </LinearGradient>
+  );
 };
 
 export default AgeTest;

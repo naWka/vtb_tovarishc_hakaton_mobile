@@ -21,7 +21,7 @@ const handleLinkOpen = () => {
   Linking.openURL(Platform.OS === 'ios' ? 'https://apps.apple.com/ru/app/%D0%B2%D1%82%D0%B1-%D0%BC%D0%BE%D0%B8-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%86%D0%B8%D0%B8/id1364026756' : 'https://play.google.com/store/apps/details?id=ru.vtb.invest&hl=ru&gl=US');
 };
 
-const EntryScreen = observer(() => {
+const MenuScreen = observer(() => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
@@ -39,4 +39,4 @@ const EntryScreen = observer(() => {
   );
 });
 
-export default EntryScreen;
+export default MenuScreen;

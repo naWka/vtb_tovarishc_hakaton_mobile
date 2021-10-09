@@ -21,6 +21,13 @@ export default function Navigation() {
           }}
         />
         <Stack.Screen name="Menu" component={MenuScreen} />
+        <Stack.Screen
+          name="AgeTest"
+          component={AgeTest}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

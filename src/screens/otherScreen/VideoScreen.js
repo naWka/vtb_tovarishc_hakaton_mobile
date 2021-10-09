@@ -25,9 +25,9 @@ const VideoScreen = ({ url }) => {
       source={{
         uri: url,
       }}
-      useNativeControls
       resizeMode="contain"
       isLooping
+      shouldPlay
     />
   );
 };

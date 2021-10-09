@@ -160,7 +160,7 @@ const DepositOrInvestment = () => {
             </View>
             <TouchableOpacity onPress={handleToBegin}>
               <View style={styles.buttonContainerLight}>
-                <Text style={styles.buttonText}>вернуться в начало</Text>
+                <Text style={styles.buttonText}>вернуться назад</Text>
               </View>
             </TouchableOpacity>
           </View>

@@ -4,17 +4,17 @@ import {
   StyleSheet, View,
 } from 'react-native';
 
-import { Colors } from '../../styles';
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: Colors.blue,
   },
   backgroungImage: {
     width: '100%',
     height: '100%',
+    justifyContent: 'center',
+  },
+  button: {
   },
 });
 

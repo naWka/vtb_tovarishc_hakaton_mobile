@@ -8,6 +8,8 @@ import calendar from '../assets/images/calendar.png';
 import cash from '../assets/images/cash.png';
 import stocks from '../assets/images/stocks.png';
 import coinsBig from '../assets/images/coinsBig.png';
+import cashBig from '../assets/images/cashBig.png';
+import brokerBig from '../assets/images/brokerBig.png';
 
 const styles = StyleSheet.create({
   container: {
@@ -83,6 +85,14 @@ const styles = StyleSheet.create({
     width: 80, 
     height: 80, 
     marginTop: 15
+  },
+  imageBigOutline: {
+    position: 'absolute',
+    top: -60,
+    left: -10,
+    width: 120,
+    height: 120,
+    backgroundColor: 'transparent',
   }
 });
 
@@ -140,6 +150,7 @@ const DepositOrInvestment = () => {
       case cardDeposit:
         return (
           <View style={styles.card}>
+            <Image source={cashBig} style={styles.imageBigOutline} />
             <Text style={styles.cardTextTitle}>2021 год</Text>
             <Text style={styles.cardText}>Вклад.</Text>
             <View style={styles.resultCard}>
@@ -157,6 +168,7 @@ const DepositOrInvestment = () => {
       case cardInvestment:
         return (
           <View style={styles.card}>
+            <Image source={brokerBig} style={styles.imageBigOutline} />
             <Text style={styles.cardTextTitle}>2021 год</Text>
             <Text style={styles.cardText}>Акции.</Text>
             <View style={styles.resultCard}>

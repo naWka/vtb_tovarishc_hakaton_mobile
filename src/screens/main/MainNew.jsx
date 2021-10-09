@@ -7,6 +7,7 @@ import Swiper from 'react-native-swiper';
 import { Colors } from '../../styles';
 import EgorBlueScreen from '../otherScreen/EgorBlueScreen';
 import EgorGreyScreen from '../otherScreen/EgorGreyScreen';
+import VideoScreen from '../otherScreen/VideoScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,6 +21,7 @@ const MainSwipe = observer(() => (
   <Swiper horizontal={false} showsPagination={false}>
     <EgorBlueScreen />
     <EgorGreyScreen />
+    <VideoScreen />
   </Swiper>
 ));
 

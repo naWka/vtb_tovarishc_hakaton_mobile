@@ -81,7 +81,7 @@ const Swipe = () => (
           return <AgeCard key={id.toString()} />;
         }
         if (item.isDepositOrInvestment) {
-          return <DepositOrInvestment />
+          return <DepositOrInvestment key={id.toString()}/>
         }
         if (item.video) {
           return <VideoCard key={id.toString()} url={item.video.url} />;

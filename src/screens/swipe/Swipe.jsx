@@ -7,6 +7,7 @@ import Swiper from 'react-native-swiper';
 import { Colors } from '../../styles';
 import SwipeCard from '../../components/SwipeCard';
 import VideoCard from '../../components/VideoCard';
+import monophy from '../../assets/images/monophy.gif';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,6 +25,11 @@ const StorgeUrl = 'http://video.hakaton.website.yandexcloud.net/';
 
 const swipeData = [
   {
+    image: monophy,
+    containerStyle: { backgroundColor: Colors.blueLighter },
+    text: 'смахните экран вверх',
+  },
+  {
     image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
     containerStyle: { backgroundColor: Colors.blue },
     text: 'Egor 1',
@@ -40,7 +46,7 @@ const swipeData = [
   },
   {
     video: { url: `${StorgeUrl}v16-web.tiktok.com.mp4` },
-    text: 'Egor 4',
+    text: 'video tik',
   },
 ];
 

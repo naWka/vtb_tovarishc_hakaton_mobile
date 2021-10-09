@@ -26,7 +26,7 @@ import {
     const navigation = useNavigation();
     return (
       <View style={styles.style}>
-        <Button title="menu" onPress={() => navigation.navigate('MenuScreen')} />
+        <Button title="menu" onPress={() => navigation.navigate('Menu')} />
       </View>
     );
   };

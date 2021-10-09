@@ -7,6 +7,7 @@ import Swiper from 'react-native-swiper';
 import { Colors } from '../../styles';
 import SwipeCard from '../../components/SwipeCard';
 import VideoCard from '../../components/VideoCard';
+import ButtonMenu from '../../components/ButtonMenu';
 import monophy from '../../assets/images/monophy.gif';
 
 const styles = StyleSheet.create({
@@ -60,6 +61,7 @@ const Swipe = () => (
         return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
       })}
     </Swiper>
+    <ButtonMenu />
   </View>
 );
 

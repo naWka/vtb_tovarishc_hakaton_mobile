@@ -4,7 +4,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Swipe from '../screens/swipe/Swipe';
-import EntryScreen from '../screens/entryScreen/EntryScreen';
+import MenuScreen from '../screens/entryScreen/MenuScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +12,6 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="EntryScreen" component={EntryScreen} />
         <Stack.Screen
           name="Swipe"
           component={Swipe}
@@ -20,6 +19,7 @@ export default function Navigation() {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="Menu" component={MenuScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

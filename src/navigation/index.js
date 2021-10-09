@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Swipe from '../screens/swipe/Swipe';
 import MenuScreen from '../screens/entryScreen/MenuScreen';
-import AgeTest from '../screens/ageTest/AgeTest';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,13 +20,6 @@ export default function Navigation() {
           }}
         />
         <Stack.Screen name="Menu" component={MenuScreen} />
-        <Stack.Screen
-          name="AgeTest"
-          component={AgeTest}
-          options={{
-            headerShown: false,
-          }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -11,6 +11,7 @@ import ButtonMenu from '../../components/ButtonMenu';
 import monophy from '../../assets/images/monophy.gif';
 import AgeCard from '../../components/AgeCard';
 import SliderCard from '../../components/SliderCard';
+import DepositOrInvestment from '../../components/DepositOrInvestment';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,6 +35,9 @@ const swipeData = [
   },
   {
     isAgeCard: true,
+  },
+  {
+    isDepositOrInvestment: true,
   },
   {
     isSliderCard: true,
@@ -69,13 +73,16 @@ const Swipe = () => (
         if (item.isAgeCard) {
           return <AgeCard key={id.toString()} />;
         }
+        if (item.isDepositOrInvestment) {
+          return <DepositOrInvestment />
+        }
         if (item.video) {
           return <VideoCard key={id.toString()} url={item.video.url} />;
         }
         return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
       })}
     </Swiper>
-    <ButtonMenu />
+    {/* <ButtonMenu /> */}
   </View>
 );
 

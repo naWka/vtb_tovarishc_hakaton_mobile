@@ -34,6 +34,7 @@ const EntryScreen = observer(() => {
         <Text>{`press me to count: ${Example.getCounter()}`}</Text>
       </TouchableOpacity>
       <Button title="go to swipe screen" onPress={() => navigation.navigate('Swipe')} />
+      <Button title="go to swipe AgeTest" onPress={() => navigation.navigate('AgeTest')} />
     </SafeAreaView>
   );
 });

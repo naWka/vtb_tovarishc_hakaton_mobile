@@ -57,6 +57,10 @@ const swipeData = [
     video: { url: `${StorgeUrl}v16-web.tiktok.com.mp4` },
     text: 'video tik',
   },
+  {
+    video: { url: `${StorgeUrl}v16-web.tiktok.com-2.mp4` },
+    text: 'video tik',
+  },
 ];
 
 const Swipe = () => (

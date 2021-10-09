@@ -3,8 +3,8 @@
   "expoServerPort": 19000,
   "packagerPort": 19000,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "webpackServerPort": null
+  "expoServerNgrokUrl": "https://q2-vmi.poshestakov.vtb-tovarishc-hakaton-mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.q2-vmi.poshestakov.vtb-tovarishc-hakaton-mobile.exp.direct",
+  "ngrokPid": 14390,
+  "webpackServerPort": 19006
 }

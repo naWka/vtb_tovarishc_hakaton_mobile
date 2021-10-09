@@ -9,7 +9,8 @@ import SwipeCard from '../../components/SwipeCard';
 import VideoCard from '../../components/VideoCard';
 import ButtonMenu from '../../components/ButtonMenu';
 import monophy from '../../assets/images/monophy.gif';
-import AgeTest from '../../components/AgeTest';
+import AgeCard from '../../components/AgeCard';
+import SliderCard from '../../components/SliderCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +33,10 @@ const swipeData = [
     text: 'смахните экран вверх',
   },
   {
-    isAgeTest: true,
+    isAgeCard: true,
+  },
+  {
+    isSliderCard: true,
   },
   {
     image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
@@ -59,8 +63,11 @@ const Swipe = () => (
   <View style={styles.container}>
     <Swiper horizontal={false} showsPagination={false}>
       {swipeData.map((item, id) => {
-        if (item.isAgeTest) {
-          return <AgeTest key={id.toString()} />;
+        if (item.isSliderCard) {
+          return <SliderCard key={id.toString()} />;
+        }
+        if (item.isAgeCard) {
+          return <AgeCard key={id.toString()} />;
         }
         if (item.video) {
           return <VideoCard key={id.toString()} url={item.video.url} />;

@@ -11,6 +11,7 @@ import ButtonMenu from '../../components/ButtonMenu';
 import monophy from '../../assets/images/monophy.gif';
 import AgeCard from '../../components/AgeCard';
 import SliderCard from '../../components/SliderCard';
+import EndCard from '../../components/EndCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -57,12 +58,18 @@ const swipeData = [
     video: { url: `${StorgeUrl}v16-web.tiktok.com.mp4` },
     text: 'video tik',
   },
+  {
+    isEnd: true,
+  },
 ];
 
 const Swipe = () => (
   <View style={styles.container}>
     <Swiper horizontal={false} showsPagination={false}>
       {swipeData.map((item, id) => {
+        if (item.isEnd) {
+          return <EndCard key={id.toString()} />;
+        }
         if (item.isSliderCard) {
           return <SliderCard key={id.toString()} />;
         }

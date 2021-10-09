@@ -21,7 +21,7 @@ const VideoScreen = ({ url }) => {
   return (
     <Video
       ref={video}
-      style={styles.backgroungImage}
+      style={{ width: '117%', height: '100%' }}
       source={{
         uri: url,
       }}

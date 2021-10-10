@@ -79,9 +79,7 @@ const chartList = [
   },
 ];
 
-const TopChart = () => {
-
-  return (
+const TopChart = () => (
     <LinearGradient
       colors={['rgba(176, 205, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 80, 148, 1)']}
       style={styles.container}
@@ -142,7 +140,6 @@ const TopChart = () => {
         </TouchableOpacity>
       </LinearGradient>
     </LinearGradient>
-  );
-};
+);
 
 export default TopChart;

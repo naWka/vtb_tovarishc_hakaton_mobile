@@ -79,70 +79,76 @@ const chartList = [
   },
 ];
 
-const TopChart = () => {
-
-  return (
-    <LinearGradient
-      colors={['rgba(176, 205, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 80, 148, 1)']}
-      style={styles.container}
-    >
-      <Text style={styles.textBold}>Чарт Акций</Text>
-      {chartList.map((item, id) => {
-        return (
-          <View style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            marginBottom: 10,
-            padding: 15,
-            height: 100,
-          }}>
-            <Image source={item.img} style={[
-              {
-                flexBasis: 'auto',
-                height: 50,
-                width: 50,
-              },
-              {
-                width: 40,
-                height: 40,
-                marginRight: 8,
-              }]} resizeMode="contain"/>
-            <View style={{
-              flexBasis: 'auto',
-            }}>
-              <Text style={styles.text}>{item.name}</Text>
-              <Text style={styles.text}>{item.description}</Text>
-            </View>
-          </View>
-        );
-      })}
-      <LinearGradient
-        start={{
-          x: 0,
-          y: 0.5,
-        }}
-        end={{
-          x: 1,
-          y: 0.5,
-        }}
-        colors={['rgba(0, 56, 255, 1)', 'rgba(0, 133, 255, 1)']}
+const TopChart = () => (
+  <LinearGradient
+    colors={['rgba(176, 205, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 80, 148, 1)']}
+    style={styles.container}
+  >
+    <Text style={styles.textBold}>Чарт Акций</Text>
+    {chartList.map((item, id) => (
+      <View
+        key={id.toString()}
         style={{
-          width: 300,
-          height: 87,
-          borderRadius: 20,
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          marginBottom: 10,
+          padding: 15,
+          height: 100,
         }}
       >
-        <TouchableOpacity style={{
+        <Image
+          source={item.img}
+          style={[
+            {
+              flexBasis: 'auto',
+              height: 50,
+              width: 50,
+            },
+            {
+              width: 40,
+              height: 40,
+              marginRight: 8,
+            }]}
+          resizeMode="contain"
+        />
+        <View style={{
+          flexBasis: 'auto',
+        }}
+        >
+          <Text style={styles.text}>{item.name}</Text>
+          <Text style={styles.text}>{item.description}</Text>
+        </View>
+      </View>
+    ))}
+    <LinearGradient
+      start={{
+        x: 0,
+        y: 0.5,
+      }}
+      end={{
+        x: 1,
+        y: 0.5,
+      }}
+      colors={['rgba(0, 56, 255, 1)', 'rgba(0, 133, 255, 1)']}
+      style={{
+        width: 300,
+        height: 87,
+        borderRadius: 20,
+      }}
+    >
+      <TouchableOpacity
+        style={{
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-        }} onPress={handleLinkOpen}>
-          <Text style={styles.textBold}>Смотреть</Text>
-        </TouchableOpacity>
-      </LinearGradient>
+        }}
+        onPress={handleLinkOpen}
+      >
+        <Text style={styles.textBold}>Смотреть</Text>
+      </TouchableOpacity>
     </LinearGradient>
-  );
-};
+  </LinearGradient>
+);
 
 export default TopChart;

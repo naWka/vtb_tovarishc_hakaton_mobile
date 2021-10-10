@@ -45,7 +45,7 @@ const cards = [
     text: 'Что нужно моей спине',
   },
 ];
-const AgeTest = () => {
+const AgeTest = ({ onLike }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const [score, setScore] = React.useState(20);
 
@@ -61,6 +61,7 @@ const AgeTest = () => {
   };
 
   const hendleLikePress = () => {
+    onLike();
     setScore(score + 10);
     next();
   };
@@ -77,11 +78,7 @@ const AgeTest = () => {
       colors={['rgba(176, 205, 249, 1)', 'rgba(58, 131, 241, 1)', 'rgba(34, 80, 148, 1)']}
       style={styles.container}
     >
-      {!isEnd ? renderCard() : (
-        <View style={styles.card}>
-          <Text style={styles.cardText}>{`Спасибо. Мы думаем Ваш возраст в районе ${score}`}</Text>
-        </View>
-      )}
+      {!isEnd && renderCard()}
       {!isEnd && (
       <View style={styles.likesContainer}>
         <TouchableOpacity onPress={hendleDislikePress}>

@@ -31,47 +31,39 @@ const StorageUrl = 'http://video.hakaton.website.yandexcloud.net/';
 
 const swipeData = [
   { object: WelcomeSwipeCard },
-  { object: AgeCard },
+  { isAgeCard: true },
   { object: DepositOrInvestment },
   { object: SliderCard },
   { object: TopChart },
   { object: Quest },
   {
-    image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
-    containerStyle: { backgroundColor: Colors.blue },
-    text: 'Egor 1',
-  },
-  {
-    image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
-    containerStyle: { backgroundColor: Colors.red },
-    text: 'Egor 2',
-  },
-  {
-    image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
-    containerStyle: { backgroundColor: Colors.purple },
-    text: 'Egor 3',
-  },
-  {
-    video: { url: `${StorageUrl}v16-web.tiktok.com.mp4` },
+    videoOld: { url: `${StorageUrl}v16-web.tiktok.com.mp4` },
+    videoYang: { url: `${StorageUrl}v16-web.tiktok.com-2.mp4` },
     text: 'video tik',
   },
   { object: EndCard },
 ];
 
-const Swipe = () => (
-  <View style={styles.container}>
-    <Swiper horizontal={false} showsPagination={false}>
-      {swipeData.map((item, id) => {
-        if (item.object) {
-          return <item.object key={id.toString()} />;
-        }
-        if (item.video) {
-          return <VideoCard key={id.toString()} url={item.video.url} />;
-        }
-        return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
-      })}
-    </Swiper>
-  </View>
-);
+const Swipe = () => {
+  const [ageCardLikes, setAgeCardLikes] = React.useState(0);
+  return (
+    <View style={styles.container}>
+      <Swiper horizontal={false} showsPagination={false} loop={false} index={0}>
+        {swipeData.map((item, id) => {
+          if (item.isAgeCard) {
+            return <AgeCard key={id.toString()} onLike={() => setAgeCardLikes(ageCardLikes + 1)} />;
+          }
+          if (item.object) {
+            return <item.object key={id.toString()} />;
+          }
+          if (item.videoOld) {
+            return <VideoCard key={id.toString()} url={ageCardLikes >= 2 ? item.videoOld.url : item.videoYang.url} />;
+          }
+          return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
+        })}
+      </Swiper>
+    </View>
+  );
+};
 
 export default Swipe;

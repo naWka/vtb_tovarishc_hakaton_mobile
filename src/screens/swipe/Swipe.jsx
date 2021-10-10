@@ -12,6 +12,7 @@ import monophy from '../../assets/images/monophy.gif';
 import AgeCard from '../../components/AgeCard';
 import SliderCard from '../../components/SliderCard';
 import EndCard from '../../components/EndCard';
+import TopChart from '../../components/TopChart';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +39,9 @@ const swipeData = [
   },
   {
     isSliderCard: true,
+  },
+  {
+    isTopChart: true,
   },
   {
     image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
@@ -75,6 +79,9 @@ const Swipe = () => (
         }
         if (item.isAgeCard) {
           return <AgeCard key={id.toString()} />;
+        }
+        if (item.isTopChart) {
+          return <TopChart key={id.toString()} />;
         }
         if (item.video) {
           return <VideoCard key={id.toString()} url={item.video.url} />;

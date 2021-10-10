@@ -61,10 +61,12 @@ const Quest = () => {
   }];
   const [begin, quest, done] = [1, 2, 3];
 
-  const [activeCard, setActiveCard] = React.useState(begin);
+  const [activeCard, setActiveCard] = React.useState({
+    next: begin,
+  });
 
   const renderSwitch = (param) => {
-    switch (param) {
+    switch (param.next) {
       case begin:
         return (
           <View>
@@ -73,7 +75,10 @@ const Quest = () => {
             <LinearGradient start={start} end={end} colors={buttonColor}
                             style={styles.buttonLinear}>
               <TouchableOpacity style={styles.buttonTouchable} onPress={() => {
-                setActiveCard(quest);
+                setActiveCard({
+                  next: quest,
+                  index: 0,
+                });
               }}>
                 <Text style={styles.textBold}>Играть</Text>
               </TouchableOpacity>
@@ -81,20 +86,46 @@ const Quest = () => {
           </View>
         );
       case quest:
+        var q = questsTree[param.index];
+        var next = quest;
+        if (questsTree.length === param.index + 1) {
+          next = done;
+        }
         return (
           <View>
+            <Text>{q.quest}</Text>
+            {q.answers.map((item) => (
+              <LinearGradient start={start} end={end} colors={buttonColor}
+                              style={styles.buttonLinear}>
+                <TouchableOpacity style={styles.buttonTouchable} onPress={() => {
+                  setActiveCard({
+                    next: next,
+                    index: param.index + 1,
+                  });
+                }}>
+                  <Text style={styles.textBold}>{ item }</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            ))}
+          </View>
+        );
+      case done:
+        return (
+          <View>
+            <Text style={styles.text}>{'Отлично,\nты помог бабушке сделать накопления правильно!\n\nАкции выросли\nна 56 % за год!'}</Text>
             <LinearGradient start={start} end={end} colors={buttonColor}
                             style={styles.buttonLinear}>
               <TouchableOpacity style={styles.buttonTouchable} onPress={() => {
-                setActiveCard(begin);
+                setActiveCard({
+                  next: begin,
+                });
               }}>
                 <Text style={styles.textBold}>Получить акцию</Text>
               </TouchableOpacity>
             </LinearGradient>
           </View>
         );
-    }
-    ;
+    };
   };
 
   return (

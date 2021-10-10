@@ -131,7 +131,6 @@ const TopChart = () => {
           width: 300,
           height: 87,
           borderRadius: 20,
-          padding: 30,
         }}
       >
         <TouchableOpacity style={{

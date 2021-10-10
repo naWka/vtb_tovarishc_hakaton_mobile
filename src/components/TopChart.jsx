@@ -86,14 +86,16 @@ const TopChart = () => (
   >
     <Text style={styles.textBold}>Чарт Акций</Text>
     {chartList.map((item, id) => (
-      <View style={{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        marginBottom: 10,
-        padding: 15,
-        height: 100,
-      }}
+      <View
+        key={id.toString()}
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          marginBottom: 10,
+          padding: 15,
+          height: 100,
+        }}
       >
         <Image
           source={item.img}

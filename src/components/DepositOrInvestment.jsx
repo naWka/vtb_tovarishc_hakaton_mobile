@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import {
-  Text, View, StyleSheet, Image, TouchableOpacity
+  Text, View, StyleSheet, Image, TouchableOpacity,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import finance from '../assets/images/finance.png';
@@ -48,10 +48,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 40,
   },
-  iconMedium: { 
-    width: 40, 
-    height: 40, 
-    marginRight: 8 
+  iconMedium: {
+    width: 40,
+    height: 40,
+    marginRight: 8,
   },
   buttonContainer: {
     marginTop: 20,
@@ -81,10 +81,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  coinsBig: { 
-    width: 80, 
-    height: 80, 
-    marginTop: 15
+  coinsBig: {
+    width: 80,
+    height: 80,
+    marginTop: 15,
   },
   imageBigOutline: {
     position: 'absolute',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     backgroundColor: 'transparent',
-  }
+  },
 });
 
 const DepositOrInvestment = () => {
@@ -105,7 +105,7 @@ const DepositOrInvestment = () => {
 
   const handleToBegin = () => {
     setActiveCard(cardBegin);
-  }
+  };
 
   const handleChooseDeposite = () => {
     setActiveCard(cardDeposit);
@@ -116,13 +116,13 @@ const DepositOrInvestment = () => {
   };
 
   const renderSwitch = (param) => {
-    switch(param) {
-      case cardBegin: 
+    switch (param) {
+      case cardBegin:
         return (
           <View style={styles.card}>
             <Text style={styles.cardTextTitle}>Представим,</Text>
             <Text style={styles.cardText}>Сейчас 2018 год.</Text>
-            <Text style={styles.cardTextTitle}></Text>
+            <Text style={styles.cardTextTitle} />
             <Text style={styles.cardText}>Нужно вложить</Text>
             <View style={styles.priceContainer}>
               <Image source={finance} style={styles.iconMedium} resizeMode="contain" />
@@ -132,7 +132,7 @@ const DepositOrInvestment = () => {
               <Image source={calendar} style={styles.iconMedium} resizeMode="contain" />
               <Text style={styles.priceText}>Срок 3 года</Text>
             </View>
-            <Text style={styles.cardTextTitle}></Text>
+            <Text style={styles.cardTextTitle} />
             <TouchableOpacity onPress={handleChooseDeposite}>
               <View style={styles.buttonContainer}>
                 <Image source={cash} style={styles.iconMedium} resizeMode="contain" />
@@ -184,12 +184,13 @@ const DepositOrInvestment = () => {
           </View>
         );
     }
-  }
+  };
 
   return (
     <LinearGradient
       colors={['rgba(66, 164, 241, 1)', 'rgba(33, 86, 134, 1)', 'rgba(15, 35, 67, 1)']}
-      style={styles.container}>
+      style={styles.container}
+    >
       { renderSwitch(activeCard) }
     </LinearGradient>
   );

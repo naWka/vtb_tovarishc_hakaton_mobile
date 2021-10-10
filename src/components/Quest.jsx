@@ -127,8 +127,9 @@ const Quest = () => {
           }}
           >
             <Text style={styles.text}>{q.quest}</Text>
-            {q.answers.map((item) => (
+            {q.answers.map((item, id) => (
               <LinearGradient
+                key={id.toString()}
                 start={start}
                 end={end}
                 colors={buttonColor}

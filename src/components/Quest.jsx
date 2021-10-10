@@ -1,8 +1,11 @@
 import React from 'react';
 import {
+  Image,
   StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { grandmother_1 } from '../assets/images/grandmother_1.png';
+import { grandmother_2 } from '../assets/images/grandmother_2.png';
 
 const styles = StyleSheet.create({
   container: {
@@ -41,11 +44,13 @@ const questsTree = [
     quest: 'Знакомьтесь, это бабушка Галя. Бабушка получает пенсию\nи складывает под матрац кучкой.\n' +
       'Что будет с ее сбережениями\nчерез 2 года?',
     answers: ['Накопит очень много', 'Деньги обесценятся'],
+    img: grandmother_1,
   },
   {
     quest: 'Бабушка Галя, поняла что хранить деньги под матрасом не выгодно.' +
       'Что посоветуете, вложить деньги \nв акции или облигации?',
     answers: ['Акции', 'Облигации'],
+    img: grandmother_2,
   },
 ];
 
@@ -72,8 +77,7 @@ const Quest = () => {
           <View>
             <Text style={styles.textBold}>Любишь квесты?</Text>
             <Text style={styles.text}>{'Пройди квест \nи получи акцию в подарок!'}</Text>
-            <LinearGradient start={start} end={end} colors={buttonColor}
-                            style={styles.buttonLinear}>
+            <LinearGradient start={start} end={end} colors={buttonColor} style={styles.buttonLinear}>
               <TouchableOpacity style={styles.buttonTouchable} onPress={() => {
                 setActiveCard({
                   next: quest,
@@ -92,8 +96,18 @@ const Quest = () => {
           next = done;
         }
         return (
-          <View>
-            <Text>{q.quest}</Text>
+          <View style={{
+            flex: 1,
+            // flexDirection: 'column',
+            setSelectedValue: 'space-evenly',
+            selectedValue: 'space-evenly',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            marginBottom: 10,
+            padding: 15,
+            height: 100,
+          }}>
+            <Text style={styles.text}>{q.quest}</Text>
             {q.answers.map((item) => (
               <LinearGradient start={start} end={end} colors={buttonColor}
                               style={styles.buttonLinear}>
@@ -103,16 +117,21 @@ const Quest = () => {
                     index: param.index + 1,
                   });
                 }}>
-                  <Text style={styles.textBold}>{ item }</Text>
+                  <Text style={styles.textBold}>{item}</Text>
                 </TouchableOpacity>
               </LinearGradient>
             ))}
+            <Image source={q.img} style={[
+              {
+                height: 150,
+              }]} resizeMode="contain"/>
           </View>
         );
       case done:
         return (
           <View>
-            <Text style={styles.text}>{'Отлично,\nты помог бабушке сделать накопления правильно!\n\nАкции выросли\nна 56 % за год!'}</Text>
+            <Text
+              style={styles.text}>{'Отлично,\nты помог бабушке сделать накопления правильно!\n\nАкции выросли\nна 56 % за год!'}</Text>
             <LinearGradient start={start} end={end} colors={buttonColor}
                             style={styles.buttonLinear}>
               <TouchableOpacity style={styles.buttonTouchable} onPress={() => {

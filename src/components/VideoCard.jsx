@@ -2,8 +2,8 @@ import React from 'react';
 import {
   StyleSheet,
 } from 'react-native';
-
 import { Video } from 'expo-av';
+import { Colors } from '../styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   backgroungImage: {
     width: '100%',
     height: '100%',
+    backgroundColor: Colors.black,
   },
 });
 

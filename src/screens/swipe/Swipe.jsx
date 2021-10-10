@@ -7,12 +7,13 @@ import Swiper from 'react-native-swiper';
 import { Colors } from '../../styles';
 import SwipeCard from '../../components/SwipeCard';
 import VideoCard from '../../components/VideoCard';
-import ButtonMenu from '../../components/ButtonMenu';
-import monophy from '../../assets/images/monophy.gif';
+import WelcomeSwipeCard from '../../components/WelcomeSwipeCard';
 import AgeCard from '../../components/AgeCard';
 import SliderCard from '../../components/SliderCard';
+import DepositOrInvestment from '../../components/DepositOrInvestment';
 import EndCard from '../../components/EndCard';
 import TopChart from '../../components/TopChart';
+import Quest from '../../components/Quest';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,23 +27,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const StorgeUrl = 'http://video.hakaton.website.yandexcloud.net/';
+const StorageUrl = 'http://video.hakaton.website.yandexcloud.net/';
 
 const swipeData = [
-  {
-    image: monophy,
-    containerStyle: { backgroundColor: Colors.blueLighter },
-    text: 'смахните экран вверх',
-  },
-  {
-    isAgeCard: true,
-  },
-  {
-    isSliderCard: true,
-  },
-  {
-    isTopChart: true,
-  },
+  { object: WelcomeSwipeCard },
+  { object: AgeCard },
+  { object: DepositOrInvestment },
+  { object: SliderCard },
+  { object: TopChart },
+  { object: Quest },
   {
     image: { uri: 'https://www.vtb.ru/-/media/headlesscms/main/hero_new/invest_10-2021/person/person_375.png' },
     containerStyle: { backgroundColor: Colors.blue },
@@ -59,29 +52,18 @@ const swipeData = [
     text: 'Egor 3',
   },
   {
-    video: { url: `${StorgeUrl}v16-web.tiktok.com.mp4` },
+    video: { url: `${StorageUrl}v16-web.tiktok.com.mp4` },
     text: 'video tik',
   },
-  {
-    isEnd: true,
-  },
+  { object: EndCard },
 ];
 
 const Swipe = () => (
   <View style={styles.container}>
     <Swiper horizontal={false} showsPagination={false}>
       {swipeData.map((item, id) => {
-        if (item.isEnd) {
-          return <EndCard key={id.toString()} />;
-        }
-        if (item.isSliderCard) {
-          return <SliderCard key={id.toString()} />;
-        }
-        if (item.isAgeCard) {
-          return <AgeCard key={id.toString()} />;
-        }
-        if (item.isTopChart) {
-          return <TopChart key={id.toString()} />;
+        if (item.object) {
+          return <item.object key={id.toString()} />;
         }
         if (item.video) {
           return <VideoCard key={id.toString()} url={item.video.url} />;
@@ -89,7 +71,6 @@ const Swipe = () => (
         return <SwipeCard key={id.toString()} image={item.image} containerStyle={item.containerStyle} text={item.text} />;
       })}
     </Swiper>
-    <ButtonMenu />
   </View>
 );
 

@@ -4,8 +4,8 @@ import {
   StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { grandmother_1 } from '../assets/images/grandmother_1.png';
-import { grandmother_2 } from '../assets/images/grandmother_2.png';
+import grandmotherOne from '../assets/images/grandmother_1.png';
+import grandmotherTwo from '../assets/images/grandmother_2.png';
 
 const styles = StyleSheet.create({
   container: {
@@ -44,13 +44,13 @@ const questsTree = [
     quest: 'Знакомьтесь, это бабушка Галя. Бабушка получает пенсию\nи складывает под матрац кучкой.\n' +
       'Что будет с ее сбережениями\nчерез 2 года?',
     answers: ['Накопит очень много', 'Деньги обесценятся'],
-    img: grandmother_1,
+    img: grandmotherOne,
   },
   {
     quest: 'Бабушка Галя, поняла что хранить деньги под матрасом не выгодно.' +
       'Что посоветуете, вложить деньги \nв акции или облигации?',
     answers: ['Акции', 'Облигации'],
-    img: grandmother_2,
+    img: grandmotherTwo,
   },
 ];
 
@@ -123,7 +123,7 @@ const Quest = () => {
             ))}
             <Image source={q.img} style={[
               {
-                height: 150,
+                height: 300,
               }]} resizeMode="contain"/>
           </View>
         );
